@@ -137,7 +137,7 @@ class ScaleCLI(object):
             ]
         )
 
-        ports: tuple[str, str, str] = (self.config["scale_ports"]["a"], self.config["scale_ports"]["b"], self.config["scale_ports"]["c"])
+        ports: tuple[str, str, str] = (self.config["scale_ports"]["1"], self.config["scale_ports"]["2"], self.config["scale_ports"]["3"])
         self.ser = tuple(serial.Serial() for _ in range(0, 3))
 
         for port, s in zip(ports, self.ser):
