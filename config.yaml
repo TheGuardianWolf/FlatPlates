@@ -1,0 +1,7 @@
+gravity: 9.799 # ms^-2
+sensor_distance: 0.4 # m
+outfile: 'out.csv'
+scale_ports:
+  a: 'COM3'
+  b: 'COM4'
+  c: 'COM5'
