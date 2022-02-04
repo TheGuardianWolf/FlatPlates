@@ -9,6 +9,7 @@ from ..algo import calc_cg
 from ..algo.cg import calc_mass
 from ..scale import SerialScale
 
+measurement = tuple[float, float, float]
 
 class ScaleCLI(object):
     def __init__(self):
@@ -56,14 +57,44 @@ class ScaleCLI(object):
         print("===")
         print()
 
-    def __print_measurements(self, x_cg, y_cg, z_cg, tm_a, tm_b, tm_c, tm_avg, m_a, m_b, m_c, x_dom, y_dom):
+    def __print_measurements(
+        self,
+        x_cg: measurement,
+        y_cg: measurement,
+        z_cg: measurement,
+        tm_a: float,
+        tm_b: float,
+        tm_c: float,
+        tm_avg: float,
+        m_a: measurement,
+        m_b: measurement,
+        m_c: measurement,
+        x_dom: measurement,
+        y_dom: measurement
+    ):
         print("Current set of results:")
-        print()
+        print(f"""(x1, y1, z1): ({x_cg[0]}, {y_cg[0]}, {z_cg[0]}) m
+        (x2, y2, z2): ({x_cg[1]}, {y_cg[1]}, {z_cg[1]})
+        Average mass: {tm_avg} kg
+        """)
 
         print("Calculated from measurements:")
-        print()
+        print(f"""Mass from measurement A: {tm_a} kg
+        Mass from measurement B: {tm_b} kg
+        Mass from measurement C: {tm_c} kg
 
-        print()
+        Measurement A: ({m_a[0]}, {m_a[1]}, {m_a[2]}) kg
+        Measurement B: ({m_b[0]}, {m_b[1]}, {m_b[2]}) kg
+        Measurement C: ({m_c[0]}, {m_c[1]}, {m_c[2]}) kg
+        """)
+
+        print("Constants:")
+        print(f"""x_dom: ({x_dom[0], x_dom[1], x_dom[2]}) m
+        y_dom: ({y_dom[0], y_dom[1], y_dom[2]}) m
+        Gravity: {self.config["gravity"]} m/s^2
+        Sensor distance: {self.config["sensor_distance"]} m
+        """)
+
         print("===")
         print()
 
