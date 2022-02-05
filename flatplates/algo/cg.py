@@ -57,9 +57,9 @@ def calc_cg(
     x_dom_t = cast(measurement, x_dom[0:3])
     y_dom_t = cast(measurement, y_dom[0:3])
 
-    w_a = (n * g for n in m_a)
-    w_b = (n * g for n in m_b)
-    w_c = (n * g for n in m_c)
+    w_a = tuple(n * g for n in m_a)
+    w_b = tuple(n * g for n in m_b)
+    w_c = tuple(n * g for n in m_c)
 
     tm_a = calc_mass(m_a)
     tm_b = calc_mass(m_b)
